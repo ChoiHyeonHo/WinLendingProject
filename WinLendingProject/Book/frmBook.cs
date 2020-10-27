@@ -42,7 +42,7 @@ namespace WinLendingProject
             CommonUtil.AddGridTextColumn(dataGridView1, "책 번호", "bookid", 150);
             CommonUtil.AddGridTextColumn(dataGridView1, "책 이름", "bookname", 200);
             CommonUtil.AddGridTextColumn(dataGridView1, "저자", "auther", 100);
-            CommonUtil.AddGridTextColumn(dataGridView1, "출판사", "publisher", 150);
+            CommonUtil.AddGridTextColumn(dataGridView1, "출판사", "publisehr", 150);
             LoadData();
         }
 
@@ -65,6 +65,7 @@ namespace WinLendingProject
             bk.Publisher = dataGridView1[3, rowIndex].Value.ToString();
 
             frmBookInsUp frm = new frmBookInsUp(frmBookInsUp.OpenMode.Update);
+            frm.bookInfo = bk;
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 Book book = frm.bookInfo;
@@ -85,12 +86,13 @@ namespace WinLendingProject
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string bookname = dataGridView1[0, dataGridView1.CurrentRow.Index].Value.ToString();
+            int rowIndex = dataGridView1.CurrentRow.Index;
+            string bookname = dataGridView1[1, rowIndex].Value.ToString();
 
             if (MessageBox.Show($"{bookname}의 정보를 삭제하시겠습니까?", "삭제확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int bookID = (int)dataGridView1[0, dataGridView1.CurrentRow.Index].Value;
-                StudentDB db = new StudentDB();
+                BookDB db = new BookDB();
                 bool result = db.Delete(bookID);
                 db.Dispose();
 
@@ -113,7 +115,35 @@ namespace WinLendingProject
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            frmBookSearch frm = new frmBookSearch();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                int bookID = frm.BookID;
 
+                DataTable dt = (DataTable)dataGridView1.DataSource;
+                //DataRow[] rows = dt.Select("studentid = " + stuID);
+                //if (rows.Length == 0)
+                //{
+                //    MessageBox.Show("등록된 정보를 찾을 수 없습니다.");
+                //}
+                //else
+                //{
+                //    MessageBox.Show(rows[0][1].ToString());
+                //}
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "bookid";
+                int rowIdx = dv.Find(bookID); //Find()를 사용하기 전에 찾는 값으로 Sort 먼저 해야함
+                if (rowIdx == -1)
+                {
+                    MessageBox.Show("등록된 책 정보를 찾을 수 없습니다.");
+                }
+                else
+                {
+                    dataGridView1.ClearSelection();
+                    dataGridView1.CurrentCell = dataGridView1.Rows[rowIdx].Cells[0];
+                }
+            }
         }
     }
 }

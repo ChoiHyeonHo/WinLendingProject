@@ -19,6 +19,7 @@ namespace WinLendingProject
             get { return new Book(int.Parse(txtBookId.Text), txtBookName.Text, txtAuther.Text, txtPublisher.Text); }
             set
             {
+                txtBookId.Text = value.BookID.ToString();
                 txtBookName.Text = value.BookName;
                 txtAuther.Text = value.Auther;
                 txtPublisher.Text = value.Publisher;
@@ -30,12 +31,12 @@ namespace WinLendingProject
 
             if (open == OpenMode.Insert)
             {
-                this.Text = "학생 정보 등록";
+                this.Text = "책 정보 등록";
                 txtBookId.Enabled = true;
             }
             else
             {
-                this.Text = "학생 정보 수정";
+                this.Text = "책 정보 수정";
                 txtBookId.Enabled = false;
             }
         }

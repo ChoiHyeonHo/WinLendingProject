@@ -23,7 +23,34 @@ namespace WinLendingProject
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (txtbookid.Text.Length < 8)
+            {
+                MessageBox.Show("8자리의 책번호를 입력해 주십시오.");
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
 
+        private void txtbookid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (txtbookid.Text.Length == 8)
+                {
+                    btnOK.PerformClick();
+                }
+                else
+                {
+                    btnCancle.PerformClick();
+                }
+            }
+            else if(! char.IsNumber(e.KeyChar) && e.KeyChar != '\b' )
+            {
+                e.Handled = true;
+            }
         }
     }
 }

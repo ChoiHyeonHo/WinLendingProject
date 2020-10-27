@@ -44,6 +44,7 @@
             // 
             this.txtBookId.Location = new System.Drawing.Point(83, 42);
             this.txtBookId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBookId.MaxLength = 8;
             this.txtBookId.Name = "txtBookId";
             this.txtBookId.Size = new System.Drawing.Size(217, 25);
             this.txtBookId.TabIndex = 0;
@@ -121,6 +122,7 @@
             // 
             // btnCanCel
             // 
+            this.btnCanCel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCanCel.Location = new System.Drawing.Point(175, 193);
             this.btnCanCel.Name = "btnCanCel";
             this.btnCanCel.Size = new System.Drawing.Size(125, 44);
@@ -146,7 +148,7 @@
             this.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmBookInsUp";
-            this.Text = "frmBookInsUp";
+            this.Text = "책 정보 입력";
             this.ResumeLayout(false);
             this.PerformLayout();
 

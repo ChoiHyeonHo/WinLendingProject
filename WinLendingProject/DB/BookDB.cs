@@ -68,11 +68,11 @@ namespace WinLendingProject
                 return false;
             }
         }
-        public bool Delete(Book book)
+        public bool Delete(int book)
         {
             try
             {
-                string sql = $"delete from book where bookid = '{book.BookID}'";
+                string sql = $"delete from book where bookid = '{book}'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.ExecuteNonQuery();
