@@ -43,7 +43,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 17);
+            this.label1.Size = new System.Drawing.Size(42, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "학번: ";
             // 
@@ -52,7 +52,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.Size = new System.Drawing.Size(42, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "이름: ";
             // 
@@ -61,16 +61,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 131);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
+            this.label3.Size = new System.Drawing.Size(42, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "학과: ";
             // 
             // txtStudentID
             // 
             this.txtStudentID.Location = new System.Drawing.Point(60, 16);
-            this.txtStudentID.MaxLength = 10;
+            this.txtStudentID.MaxLength = 7;
             this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(188, 25);
+            this.txtStudentID.Size = new System.Drawing.Size(188, 24);
             this.txtStudentID.TabIndex = 0;
             this.txtStudentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
@@ -79,7 +79,7 @@
             this.txtStudentName.ImeMode = System.Windows.Forms.ImeMode.HangulFull;
             this.txtStudentName.Location = new System.Drawing.Point(60, 71);
             this.txtStudentName.Name = "txtStudentName";
-            this.txtStudentName.Size = new System.Drawing.Size(188, 25);
+            this.txtStudentName.Size = new System.Drawing.Size(188, 24);
             this.txtStudentName.TabIndex = 1;
             // 
             // txtDepartment
@@ -87,7 +87,7 @@
             this.txtDepartment.ImeMode = System.Windows.Forms.ImeMode.HangulFull;
             this.txtDepartment.Location = new System.Drawing.Point(60, 126);
             this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(188, 25);
+            this.txtDepartment.Size = new System.Drawing.Size(188, 24);
             this.txtDepartment.TabIndex = 2;
             // 
             // btnOK
@@ -112,7 +112,7 @@
             // 
             // frmStudentInsUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 223);
             this.Controls.Add(this.btnCancel);
@@ -123,8 +123,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmStudentInsUp";
             this.Text = "학생정보입력";
             this.ResumeLayout(false);

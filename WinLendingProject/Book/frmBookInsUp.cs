@@ -12,14 +12,32 @@ namespace WinLendingProject
 {
     public partial class frmBookInsUp : Form
     {
+        public enum OpenMode { Insert, Update }
+
         public Book bookInfo
         {
             get { return new Book(int.Parse(txtBookId.Text), txtBookName.Text, txtAuther.Text, txtPublisher.Text); }
-            //set;
+            set
+            {
+                txtBookName.Text = value.BookName;
+                txtAuther.Text = value.Auther;
+                txtPublisher.Text = value.Publisher;
+            }
         }
-        public frmBookInsUp()
+        public frmBookInsUp(OpenMode open)
         {
             InitializeComponent();
+
+            if (open == OpenMode.Insert)
+            {
+                this.Text = "학생 정보 등록";
+                txtBookId.Enabled = true;
+            }
+            else
+            {
+                this.Text = "학생 정보 수정";
+                txtBookId.Enabled = false;
+            }
         }
 
         private void txtBookId_KeyPress(object sender, KeyPressEventArgs e)

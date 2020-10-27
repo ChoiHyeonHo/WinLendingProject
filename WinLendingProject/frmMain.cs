@@ -12,6 +12,8 @@ namespace WinLendingProject
 {
     public partial class frmMain : Form
     {
+        frmStudent studentFrm;
+
         public frmMain()
         {
             InitializeComponent();
@@ -19,15 +21,25 @@ namespace WinLendingProject
 
         private void 학생관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStudent frm = new frmStudent();
-            frm.MdiParent = this;
-            frm.Show();
+            if (studentFrm == null)
+            {
+                studentFrm = new frmStudent();
+                studentFrm.MdiParent = this;
+                studentFrm.Show(); //Load -> Shown -> Activate
+            }
+            else
+            {
+                studentFrm.Activate(); // Activate
+            }
         }
 
         private void 도서관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBook frm = new frmBook();
+            frm = new frmBook();
             frm.MdiParent = this;
+
+            
             frm.Show();
         }
     }

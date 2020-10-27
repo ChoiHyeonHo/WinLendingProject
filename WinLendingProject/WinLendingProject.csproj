@@ -48,17 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDB.cs" />
-    <Compile Include="frmBook.cs">
+    <Compile Include="DB\BookDB.cs" />
+    <Compile Include="Book\frmBookSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBook.Designer.cs">
+    <Compile Include="Book\frmBookSearch.Designer.cs">
+      <DependentUpon>frmBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\frmStudentSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\frmStudentSearch.Designer.cs">
+      <DependentUpon>frmStudentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utill\CommonUtil.cs" />
+    <Compile Include="Book\frmBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Book\frmBook.Designer.cs">
       <DependentUpon>frmBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBookInsUp.cs">
+    <Compile Include="Book\frmBookInsUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBookInsUp.Designer.cs">
+    <Compile Include="Book\frmBookInsUp.Designer.cs">
       <DependentUpon>frmBookInsUp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -67,35 +80,41 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStudent.cs">
+    <Compile Include="Student\frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudent.Designer.cs">
+    <Compile Include="Student\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentInsUp.cs">
+    <Compile Include="Student\frmStudentInsUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudentInsUp.Designer.cs">
+    <Compile Include="Student\frmStudentInsUp.Designer.cs">
       <DependentUpon>frmStudentInsUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentDB.cs" />
-    <EmbeddedResource Include="frmBook.resx">
+    <Compile Include="DB\StudentDB.cs" />
+    <EmbeddedResource Include="Book\frmBook.resx">
       <DependentUpon>frmBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBookInsUp.resx">
+    <EmbeddedResource Include="Book\frmBookInsUp.resx">
       <DependentUpon>frmBookInsUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Book\frmBookSearch.resx">
+      <DependentUpon>frmBookSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudent.resx">
+    <EmbeddedResource Include="Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudentInsUp.resx">
+    <EmbeddedResource Include="Student\frmStudentInsUp.resx">
       <DependentUpon>frmStudentInsUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\frmStudentSearch.resx">
+      <DependentUpon>frmStudentSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,5 +138,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

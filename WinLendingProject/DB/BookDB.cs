@@ -12,10 +12,10 @@ namespace WinLendingProject
 {
     public struct Book
     {
-        public int BookID { get; set; }
-        public string BookName { get; set; }
-        public string Auther { get; set; }
-        public string Publisher { get; set; }
+        public int BookID;
+        public string BookName;
+        public string Auther;
+        public string Publisher;
 
         public Book(int bookID, string bookName, string auther, string publisher)
         {
@@ -45,6 +45,38 @@ namespace WinLendingProject
                 cmd.ExecuteNonQuery();
                 return true;
 
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+        public bool Update(Book book)
+        {
+            try
+            {
+                string sql = $"update book set bookname = '{book.BookName}', auther = '{book.Auther}', publisehr = '{book.Auther}' where bookid = '{book.BookID}';";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+        public bool Delete(Book book)
+        {
+            try
+            {
+                string sql = $"delete from book where bookid = '{book.BookID}'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception err)
             {

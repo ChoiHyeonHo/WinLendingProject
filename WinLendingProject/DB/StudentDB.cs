@@ -15,9 +15,9 @@ namespace WinLendingProject
     public struct Student
     {
         //학번 이름 전공을 하나로 묶어주는 Class
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Dept { get; set; }
+        public int ID;
+        public string Name;
+        public string Dept;
         public Student(int stuID, string stuName, string stuDept)
         {
             ID = stuID;
@@ -49,6 +49,44 @@ namespace WinLendingProject
                 cmd.ExecuteNonQuery();
                 return true;
 
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool Update(Student std)
+        {
+            try
+            {
+                string sql = $@"update student set studentname = '{std.Name}', 
+                                                   department = '{std.Dept}' 
+                                               where studentid = {std.ID}";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return false;
+            }
+        }
+
+        public bool Delete(int stuID)
+        {
+            try
+            {
+                string sql = $@"delete from student where studentid = '{stuID}'";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception err)
             {
