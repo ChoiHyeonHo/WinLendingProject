@@ -55,6 +55,19 @@
     <Compile Include="Book\frmBookSearch.Designer.cs">
       <DependentUpon>frmBookSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB\LendingDB.cs" />
+    <Compile Include="frmLending.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLending.Designer.cs">
+      <DependentUpon>frmLending.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewLending.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewLending.Designer.cs">
+      <DependentUpon>frmNewLending.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\frmStudentSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,8 +117,14 @@
     <EmbeddedResource Include="Book\frmBookSearch.resx">
       <DependentUpon>frmBookSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLending.resx">
+      <DependentUpon>frmLending.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewLending.resx">
+      <DependentUpon>frmNewLending.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>

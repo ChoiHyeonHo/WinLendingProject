@@ -13,9 +13,20 @@ namespace WinLendingProject
 {
     public partial class frmStudent : Form
     {
-        public frmStudent()
+        public static frmStudent frm;
+
+        private frmStudent()
         {
             InitializeComponent();
+        }
+
+        public static frmStudent CreateStudentForm()
+        {
+            if (frm == null)
+            {
+                frm = new frmStudent();
+            }
+            return frm;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -172,6 +183,11 @@ namespace WinLendingProject
                 //    MessageBox.Show("등록된 정보를 찾을 수 없습니다.");
                 //}
             }
+        }
+
+        private void frmStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frm = null;
         }
     }
 }

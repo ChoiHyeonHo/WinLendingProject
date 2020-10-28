@@ -68,6 +68,7 @@
             this.대여관리ToolStripMenuItem.Name = "대여관리ToolStripMenuItem";
             this.대여관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.대여관리ToolStripMenuItem.Text = "대여관리";
+            this.대여관리ToolStripMenuItem.Click += new System.EventHandler(this.대여관리ToolStripMenuItem_Click);
             // 
             // 반납관리ToolStripMenuItem
             // 

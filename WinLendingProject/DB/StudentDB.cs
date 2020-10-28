@@ -43,8 +43,19 @@ namespace WinLendingProject
         {
             try
             {
-                string sql = $"insert into student (studentid, studentname, department) values ({std.ID}, '{std.Name}', '{std.Dept}')";
+                string sql = $@"insert into student (studentid, studentname, department) 
+                                values (@studentid, @studentname, @department)";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.Add("@studentid", MySqlDbType.Int32);
+                cmd.Parameters["@studentid"].Value = std.ID;
+
+                cmd.Parameters.Add("@studentname", MySqlDbType.VarChar);
+                cmd.Parameters["@studentname"].Value = std.Name;
+
+                cmd.Parameters.Add("@department", MySqlDbType.VarChar);
+                cmd.Parameters["@department"].Value = std.Dept;
+
                 
                 cmd.ExecuteNonQuery();
                 return true;
@@ -61,11 +72,22 @@ namespace WinLendingProject
         {
             try
             {
-                string sql = $@"update student set studentname = '{std.Name}', 
-                                                   department = '{std.Dept}' 
-                                               where studentid = {std.ID}";
+                string sql = $@"update student set studentname = @studentname, 
+                                                   department = @department 
+                                               where studentid = @studentid";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.Clear();
+
+                cmd.Parameters.Add("@studentname", MySqlDbType.VarChar);
+                cmd.Parameters["@studentname"].Value = std.Name;
+
+                cmd.Parameters.Add("@department", MySqlDbType.VarChar);
+                cmd.Parameters["@department"].Value = std.Dept;
+
+                cmd.Parameters.Add("@studentid", MySqlDbType.VarChar);
+                cmd.Parameters["@studentid"].Value = std.ID;
 
                 cmd.ExecuteNonQuery();
                 return true;
@@ -81,9 +103,14 @@ namespace WinLendingProject
         {
             try
             {
-                string sql = $@"delete from student where studentid = '{stuID}'";
+                string sql = $@"update student set deleted 1 where studentid = @studentid";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.Clear();
+
+                cmd.Parameters.Add(@"studentid", MySqlDbType.Int32);
+                cmd.Parameters[@"studentid"].Value = stuID;
 
                 cmd.ExecuteNonQuery();
                 return true;
@@ -112,6 +139,26 @@ namespace WinLendingProject
             }
         }
 
+        public bool IsValid(int stuID) //학번이 유효하면 true
+        {
+            string sql = $"select count(*) from student where deleted = 0 and studentid = @studentid";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.Clear();
+
+            cmd.Parameters.Add("@studentid", MySqlDbType.Int32);
+            cmd.Parameters[@"studentid"].Value = stuID;
+
+            int cnt = Convert.ToInt32(cmd.ExecuteScalar());
+            if (cnt ==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void Dispose()
         {
             conn.Close();
