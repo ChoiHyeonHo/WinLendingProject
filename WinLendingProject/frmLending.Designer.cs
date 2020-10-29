@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvLendable = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvUnLendable = new System.Windows.Forms.DataGridView();
             this.btnList = new System.Windows.Forms.Button();
             this.btnLend = new System.Windows.Forms.Button();
             this.btnReserveList = new System.Windows.Forms.Button();
             this.btnReserve = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvUnLendable = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLendable)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -53,52 +53,6 @@
             this.dgvLendable.RowTemplate.Height = 23;
             this.dgvLendable.Size = new System.Drawing.Size(795, 151);
             this.dgvLendable.TabIndex = 1;
-            // 
-            // btnList
-            // 
-            this.btnList.Location = new System.Drawing.Point(15, 401);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(93, 36);
-            this.btnList.TabIndex = 3;
-            this.btnList.Text = "대여목록";
-            this.btnList.UseVisualStyleBackColor = true;
-            // 
-            // btnLend
-            // 
-            this.btnLend.Location = new System.Drawing.Point(192, 401);
-            this.btnLend.Name = "btnLend";
-            this.btnLend.Size = new System.Drawing.Size(93, 36);
-            this.btnLend.TabIndex = 0;
-            this.btnLend.Text = "대여";
-            this.btnLend.UseVisualStyleBackColor = true;
-            this.btnLend.Click += new System.EventHandler(this.btnLend_Click);
-            // 
-            // btnReserveList
-            // 
-            this.btnReserveList.Location = new System.Drawing.Point(369, 401);
-            this.btnReserveList.Name = "btnReserveList";
-            this.btnReserveList.Size = new System.Drawing.Size(93, 36);
-            this.btnReserveList.TabIndex = 5;
-            this.btnReserveList.Text = "예약목록";
-            this.btnReserveList.UseVisualStyleBackColor = true;
-            // 
-            // btnReserve
-            // 
-            this.btnReserve.Location = new System.Drawing.Point(546, 401);
-            this.btnReserve.Name = "btnReserve";
-            this.btnReserve.Size = new System.Drawing.Size(93, 36);
-            this.btnReserve.TabIndex = 6;
-            this.btnReserve.Text = "예약";
-            this.btnReserve.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(723, 401);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(93, 36);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "닫기";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -132,9 +86,57 @@
             this.dgvUnLendable.Size = new System.Drawing.Size(795, 151);
             this.dgvUnLendable.TabIndex = 1;
             // 
+            // btnList
+            // 
+            this.btnList.Location = new System.Drawing.Point(15, 401);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(93, 36);
+            this.btnList.TabIndex = 3;
+            this.btnList.Text = "대여목록";
+            this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
+            // 
+            // btnLend
+            // 
+            this.btnLend.Location = new System.Drawing.Point(192, 401);
+            this.btnLend.Name = "btnLend";
+            this.btnLend.Size = new System.Drawing.Size(93, 36);
+            this.btnLend.TabIndex = 0;
+            this.btnLend.Text = "대여";
+            this.btnLend.UseVisualStyleBackColor = true;
+            this.btnLend.Click += new System.EventHandler(this.btnLend_Click);
+            // 
+            // btnReserveList
+            // 
+            this.btnReserveList.Location = new System.Drawing.Point(369, 401);
+            this.btnReserveList.Name = "btnReserveList";
+            this.btnReserveList.Size = new System.Drawing.Size(93, 36);
+            this.btnReserveList.TabIndex = 5;
+            this.btnReserveList.Text = "예약목록";
+            this.btnReserveList.UseVisualStyleBackColor = true;
+            // 
+            // btnReserve
+            // 
+            this.btnReserve.Location = new System.Drawing.Point(546, 401);
+            this.btnReserve.Name = "btnReserve";
+            this.btnReserve.Size = new System.Drawing.Size(93, 36);
+            this.btnReserve.TabIndex = 6;
+            this.btnReserve.Text = "예약";
+            this.btnReserve.UseVisualStyleBackColor = true;
+            this.btnReserve.Click += new System.EventHandler(this.btnReserve_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(723, 401);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(93, 36);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "닫기";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // frmLending
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 464);
             this.Controls.Add(this.groupBox2);
@@ -144,10 +146,11 @@
             this.Controls.Add(this.btnLend);
             this.Controls.Add(this.btnList);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLending";
             this.Text = "frmLending";
+            this.Load += new System.EventHandler(this.frmLending_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLendable)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -159,13 +162,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvLendable;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvUnLendable;
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.Button btnLend;
         private System.Windows.Forms.Button btnReserveList;
         private System.Windows.Forms.Button btnReserve;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvUnLendable;
     }
 }

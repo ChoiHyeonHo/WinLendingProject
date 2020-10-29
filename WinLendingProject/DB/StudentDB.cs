@@ -39,6 +39,8 @@ namespace WinLendingProject
             conn.Open();
         }
 
+        //37.2
+
         public bool Insert(Student std)
         {
             try
@@ -144,10 +146,8 @@ namespace WinLendingProject
             string sql = $"select count(*) from student where deleted = 0 and studentid = @studentid";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.Parameters.Clear();
-
             cmd.Parameters.Add("@studentid", MySqlDbType.Int32);
-            cmd.Parameters[@"studentid"].Value = stuID;
+            cmd.Parameters["@studentid"].Value = stuID;
 
             int cnt = Convert.ToInt32(cmd.ExecuteScalar());
             if (cnt ==1)

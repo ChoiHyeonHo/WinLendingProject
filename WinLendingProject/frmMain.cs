@@ -30,10 +30,8 @@ namespace WinLendingProject
         private void 도서관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBook frm = new frmBook();
-            frm = new frmBook();
             frm.MdiParent = this;
-
-            
+            frm.Activate();
             frm.Show();
         }
 
@@ -43,6 +41,13 @@ namespace WinLendingProject
             frm.MdiParent = this;
             frm.Show();
             frm.Activate();
+        }
+
+        private void 반납관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReturnBook frm = new frmReturnBook();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

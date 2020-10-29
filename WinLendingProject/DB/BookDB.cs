@@ -139,6 +139,25 @@ namespace WinLendingProject
             }
         }
 
+        public bool IsReserved(int bkID) // 예약중이면 true
+        {
+            string sql = "select ifnull(reservestuid, 0) reservestuid from book where deleted = 0 and bookid = @bookid;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.Add("@bookid", MySqlDbType.Int32);
+            cmd.Parameters["@bookid"].Value = bkID;
+
+            int cnt = Convert.ToInt32(cmd.ExecuteScalar());
+            if (cnt > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool IsLended(int bkID) // 대여중이면 true
         {
             string sql = $"select ifnull(lendingstate, 0) lendingstate from book where deleted = 0 and bookid = @bookid;";

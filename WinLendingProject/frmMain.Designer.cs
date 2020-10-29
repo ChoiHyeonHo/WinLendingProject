@@ -75,6 +75,7 @@
             this.반납관리ToolStripMenuItem.Name = "반납관리ToolStripMenuItem";
             this.반납관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.반납관리ToolStripMenuItem.Text = "반납관리";
+            this.반납관리ToolStripMenuItem.Click += new System.EventHandler(this.반납관리ToolStripMenuItem_Click);
             // 
             // frmMain
             // 
