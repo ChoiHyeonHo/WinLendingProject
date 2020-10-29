@@ -39,8 +39,6 @@ namespace WinLendingProject
             conn.Open();
         }
 
-        //37.2
-
         public bool Insert(Student std)
         {
             try

@@ -121,13 +121,15 @@ namespace WinLendingProject
         {
             DataTable dt = new DataTable();
             string sql = $@"select b.bookid, bookname, auther, publisehr, 
-			ifnull(lendingstate, 0) lendingstate, 
-            ifnull(studentid, 0) studentid,
-            ifnull(reservestuid, 0) reservestuid
-            from book b left outer join lendingitem t on b.bookid = t.bookid
-			left outer join lending l on t.lendingid = l.lendingid
-            where deleted = 0
-            and t.returndate is null;";
+			                ifnull(lendingstate, 0) lendingstate, 
+                            ifnull(studentid, 0) studentid,
+                            ifnull(reservestuid, 0) reservestuid
+                            from book b left outer join (select bookid, L.lendingid, studentid
+                            from lending L inner join (select bookid, max(lendingid) lendingid
+                            from lendingitem
+                            group by bookid) Li
+		                    on L.lendingid = Li.lendingid) L on b.bookid = L.bookid
+                            where deleted = 0;";
 
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             da.Fill(dt);
