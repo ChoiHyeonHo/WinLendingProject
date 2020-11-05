@@ -33,6 +33,7 @@
             this.도서관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.대여관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.반납관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.장바구니ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,8 @@
             // 
             // 도서관리ToolStripMenuItem
             // 
+            this.도서관리ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.장바구니ToolStripMenuItem});
             this.도서관리ToolStripMenuItem.Name = "도서관리ToolStripMenuItem";
             this.도서관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.도서관리ToolStripMenuItem.Text = "도서관리";
@@ -76,6 +79,13 @@
             this.반납관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.반납관리ToolStripMenuItem.Text = "반납관리";
             this.반납관리ToolStripMenuItem.Click += new System.EventHandler(this.반납관리ToolStripMenuItem_Click);
+            // 
+            // 장바구니ToolStripMenuItem
+            // 
+            this.장바구니ToolStripMenuItem.Name = "장바구니ToolStripMenuItem";
+            this.장바구니ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.장바구니ToolStripMenuItem.Text = "장바구니";
+            this.장바구니ToolStripMenuItem.Click += new System.EventHandler(this.장바구니ToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -101,6 +111,7 @@
         private System.Windows.Forms.ToolStripMenuItem 도서관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 대여관리ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 반납관리ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 장바구니ToolStripMenuItem;
     }
 }
 

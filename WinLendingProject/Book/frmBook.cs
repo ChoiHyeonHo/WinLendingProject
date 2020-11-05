@@ -41,8 +41,9 @@ namespace WinLendingProject
             CommonUtil.SetInitGridView(dataGridView1);
             CommonUtil.AddGridTextColumn(dataGridView1, "책 번호", "bookid", 150);
             CommonUtil.AddGridTextColumn(dataGridView1, "책 이름", "bookname", 200);
-            CommonUtil.AddGridTextColumn(dataGridView1, "저자", "auther", 100);
-            CommonUtil.AddGridTextColumn(dataGridView1, "출판사", "publisehr", 150);
+            CommonUtil.AddGridTextColumn(dataGridView1, "저자", "author", 100);
+            CommonUtil.AddGridTextColumn(dataGridView1, "출판사", "publisher", 150);
+            CommonUtil.AddGridTextColumn(dataGridView1, "이미지파일 이름", "BookImage", 150, false);
             LoadData();
         }
 
@@ -61,8 +62,9 @@ namespace WinLendingProject
             Book bk;
             bk.BookID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             bk.BookName = dataGridView1[1, rowIndex].Value.ToString(); //위와 같지만 다른 방법
-            bk.Auther = dataGridView1[2, rowIndex].Value.ToString();
+            bk.Author = dataGridView1[2, rowIndex].Value.ToString();
             bk.Publisher = dataGridView1[3, rowIndex].Value.ToString();
+            bk.BookImage = null;
 
             frmBookInsUp frm = new frmBookInsUp(frmBookInsUp.OpenMode.Update);
             frm.bookInfo = bk;

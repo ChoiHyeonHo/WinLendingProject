@@ -76,7 +76,7 @@ namespace WinLendingProject
                 {
                     //입력된 도서를 대여목록(ListBox)에 추가한다
                     Book curBook = db.GetBookInfo(bookID);
-                    lstLendBook.Items.Add($"{curBook.BookID} / {curBook.BookName} / {curBook.Auther} / {curBook.Publisher}");
+                    lstLendBook.Items.Add($"{curBook.BookID} / {curBook.BookName} / {curBook.Author} / {curBook.Publisher}");
                     txtBookid.Text = "";
                 }
             }

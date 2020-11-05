@@ -49,5 +49,12 @@ namespace WinLendingProject
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void 장바구니ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Shopping frm = new Shopping();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

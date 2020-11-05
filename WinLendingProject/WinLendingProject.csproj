@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\Book.cs" />
     <Compile Include="DB\BookDB.cs" />
     <Compile Include="Book\frmBookSearch.cs">
       <SubType>Form</SubType>
@@ -80,11 +81,23 @@
     <Compile Include="frmReturnBook.Designer.cs">
       <DependentUpon>frmReturnBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shopping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shopping.Designer.cs">
+      <DependentUpon>Shopping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\frmStudentSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Student\frmStudentSearch.Designer.cs">
       <DependentUpon>frmStudentSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utill\CommonUtil.cs" />
     <Compile Include="Book\frmBook.cs">
@@ -144,6 +157,9 @@
     <EmbeddedResource Include="frmReturnBook.resx">
       <DependentUpon>frmReturnBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Shopping.resx">
+      <DependentUpon>Shopping.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

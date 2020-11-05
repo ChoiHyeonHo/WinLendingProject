@@ -10,21 +10,6 @@ using System.Data;
 
 namespace WinLendingProject
 {
-    public struct Book
-    {
-        public int BookID;
-        public string BookName;
-        public string Auther;
-        public string Publisher;
-
-        public Book(int bookID, string bookName, string auther, string publisher)
-        {
-            this.BookID = bookID;
-            this.BookName = bookName;
-            this.Auther = auther;
-            this.Publisher = publisher;
-        }
-    }
 
     class BookDB : IDisposable
     {
@@ -35,11 +20,45 @@ namespace WinLendingProject
             conn = new MySqlConnection(strConn);
             conn.Open();
         }
+
+        public DataTable GetBookImage()
+        {
+            string sql = "select bookID, bookName, author, publisher, bookImage from book;";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        public bool AddBookImage(int bid, string path)
+        {
+            string sql = @"insert into book(bookID, bookImage) 
+                           values(@bid, @path)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.Add("@bid", MySqlDbType.Int32);
+            cmd.Parameters["@bid"].Value = bid;
+
+            cmd.Parameters.Add("@path", MySqlDbType.VarChar);
+            cmd.Parameters["@path"].Value = path;
+
+            int iResult = cmd.ExecuteNonQuery();
+            if (iResult > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool Insert(Book book)
         {
             try
             {
-                string sql = $"insert into book(bookid, bookname, auther, publisehr) values (@bookid, @bookname, @auther, @publisehr)";
+                string sql = $@"update book set bookID = @bookID,  bookName = @bookName, author = @author, publisher = @publisher
+                                 where bookImage = @bookImage; ";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.Clear();
@@ -50,11 +69,14 @@ namespace WinLendingProject
                 cmd.Parameters.Add("@bookname", MySqlDbType.VarChar);
                 cmd.Parameters["@bookname"].Value = book.BookName;
 
-                cmd.Parameters.Add("@auther", MySqlDbType.VarChar);
-                cmd.Parameters["@auther"].Value = book.Auther;
+                cmd.Parameters.Add("@author", MySqlDbType.VarChar);
+                cmd.Parameters["@author"].Value = book.Author;
 
-                cmd.Parameters.Add("@publisehr", MySqlDbType.VarChar);
-                cmd.Parameters["@publisehr"].Value = book.Publisher;
+                cmd.Parameters.Add("@publisher", MySqlDbType.VarChar);
+                cmd.Parameters["@publisher"].Value = book.Publisher;
+
+                cmd.Parameters.Add("@bookImage", MySqlDbType.VarChar);
+                cmd.Parameters["@bookImage"].Value = book.BookImage;
 
                 cmd.ExecuteNonQuery();
                 return true;
@@ -79,7 +101,7 @@ namespace WinLendingProject
                 cmd.Parameters["@bookname"].Value = book.BookName;
 
                 cmd.Parameters.Add("@auther", MySqlDbType.VarChar);
-                cmd.Parameters["@auther"].Value = book.Auther;
+                cmd.Parameters["@auther"].Value = book.Author;
 
                 cmd.Parameters.Add("@publisehr", MySqlDbType.VarChar);
                 cmd.Parameters["@publisehr"].Value = book.Publisher;
@@ -210,7 +232,7 @@ namespace WinLendingProject
             {
                 book.BookID = Convert.ToInt32(reader["bookid"]);
                 book.BookName = reader["bookname"].ToString();
-                book.Auther = reader["auther"].ToString();
+                book.Author = reader["auther"].ToString();
                 book.Publisher = reader["publisehr"].ToString();
             }
             return book;
@@ -220,10 +242,10 @@ namespace WinLendingProject
         {
             try
             {
-                string sql = $@"select bookid, bookname, auther, publisehr,
+                string sql = $@"select bookID, bookName, author, publisher,
                                 case when ifnull(lendingstate, 0) = 0  then '대여가능'
-                                else '대여중' end lendingstate, reservestuid
-                                from book where deleted = 0; ";
+                                else '대여중' end lendingstate, resesrvestuid
+                                from book;";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
